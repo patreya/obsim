@@ -1,0 +1,44 @@
+Summary
+This software contain two parts. The first part generates a list of sources (position, observing duration, priority) and saves those that are visible from the given location to a input file.
+
+The second part of the code uses the information from the input file and computes a schedule for the observation night. The current algorithm chooses the highest priority source that is observable. 
+
+The platform is built such that multiple algorithm can be built, and can be compared for the efficiency of the observation
+
+
+Assumptions/Drawbacks	
+(1) Only one night of observation is assumed
+(2) Correction for change of position of sources during slew not taken into account 
+(3) Detail testing has not been performed
+	
+
+File Structure
+README			: This file
+obsim_config.txt 	: User Config file
+obsim_data.txt		: Input data used for simulation
+obsim_result.txt	: Computed schedule from the algorithm
+obsim_util.py		: Utility routines
+obsim.py		: main 
+
+
+Dependencies:
+PyEphem			: http://rhodesmill.org/pyephem/ 
+Numpy
+
+
+Example:
+patreya > python obsim.py 
+Using schedule by priority algorithm for 515 sources
+From total of 515 sources,  53 sources is scheduled for observation
+Total slew time is 0.27 hour
+Total observing duration is 11.73 hour
+Median value of priority for the entire source is 48.90
+Median value of priority for the scheduled source is 92.30
+
+
+For more information: 
+Prakash Atreya
+patreya@gmail.com
+May 25, 2014
+
+

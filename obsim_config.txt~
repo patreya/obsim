@@ -1,0 +1,38 @@
+[Sources]
+number_of_sources = 200		; Number of sources (to be initially generated, those not visible will be filtered out)
+generate_new_input_data = yes  	; (No -> use saved data from previous run. Yes -> New data is generated)
+min_duration = 60.0		; minmum duration of observation [sec]
+max_duration = 1800.0		; maximum duration of observation [sec]
+min_priority = 1.0		; source with lowest priority
+max_priority = 99.0		; source with highest priority
+;
+;
+[File]
+data_file = obsim_data.txt	; text file where the randomly generated source input data is stored
+result_file = obsim_result.txt  ; text file to store generated schedule
+;
+;
+[Location]
+latitude = 66.7528		; degrees (-ve for West)
+longitude = 18.3422		; degrees (-ve for South)
+altitude = 267 			; in meters
+;
+; 
+[Date]
+start_date = 2014/06/06  	; Local Start date (yyyy/mm/dd) of the observation
+start_time = 18:00:00    	; Local Start time of the observation
+end_time = 06:00:00	 	; Local End time of the observation (if more than start_time, then its same day)
+time_zone = -7.0	 	; Time zone difference of Local time from UTC (-ve for West)
+;
+;
+[Telescope_position]
+telescope_azimuth = 60.0	; Telescope azimuth at the start of the run, in degrees [0, 360]
+telescope_altitude = 60.0	; Telescope altitude at the start of run, in degrees [0, 90]
+slew_rate_az = 0.8  		; deg/s
+slew_rate_alt = 0.5 		; deg/s
+
+[schedule_by_priority]
+wait_time = 300			; seconds. If no sources are available, wait for this time, and check again.
+
+
+
